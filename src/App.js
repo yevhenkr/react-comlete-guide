@@ -45,18 +45,18 @@ const App = props => {
     <div className="App">
       <h1>Hi, I'm React App</h1>
       <p>This is realy working!</p>
-      <button onClick={()=> swithNameHandler('Maximilian!!!')}>Switch name</button>
+      <button onClick={() => swithNameHandler('Maximilian!!!')}>Switch name</button>
       <Person
-        name={personsState.person[0].name} 
+        name={personsState.person[0].name}
         age={personsState.person[0].age} />
       <Person
-        name={personsState.person[1].name} 
+        name={personsState.person[1].name}
         age={personsState.person[1].age}
-        click={swithNameHandler.bind(this, 'Max')} 
+        click={swithNameHandler.bind(this, 'Max')}
         changed={nameChangehandler}
-        >My hobies recing</Person>
+      >My hobies recing</Person>
       <Person
-        name={personsState.person[2].name} 
+        name={personsState.person[2].name}
         age={personsState.person[2].age} />
     </div>
   );

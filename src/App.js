@@ -13,14 +13,15 @@ class App extends Component {
   }
 
   swithNameHandler = () =>{
-    console.log('Was clicked   ');
+    // console.log('Was clicked ');
+    this.state.person[0].name = 'Maximilian';
   }
   render() {
     return (
       <div className="App">
         <h1>Hi, I'm React App</h1>
         <p>This is realy working!</p>
-        <button onClick={this.swithNameHandler()}>Switch name</button>
+        <button onClick={this.swithNameHandler}>Switch name</button>
         <Person name={this.state.person[0].name} age={this.state.person[0].age}/>
         <Person name={this.state.person[1].name} age={this.state.person[1].age} >My hobies recing</Person>
         <Person name={this.state.person[2].name} age={this.state.person[2].age}/>

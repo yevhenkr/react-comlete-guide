@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
 
+
 const App = props => {
   const [personsState, setPersonsState] = useState({
     person: [
@@ -14,13 +15,14 @@ const App = props => {
   const [otherState, setOtherState] = useState('some other value');
 
   console.log(personsState, otherState);
+  console.log(this);
 
-  const swithNameHandler = () => {
+  const swithNameHandler = (newName) => {
     // console.log('Was clicked ');
     //DON'T DO THIS:  personsState.person[0].name = 'Maximilian';
     setPersonsState({
       person: [
-        { name: 'Maximilian', age: '28' },
+        { name: newName, age: '28' },
         { name: 'Manu', age: '29' },
         { name: 'Stephanie', age: '27' },
       ],
@@ -29,17 +31,37 @@ const App = props => {
     });
   };
 
+  const nameChangehandler = (event) => {
+    setPersonsState({
+      person: [
+        { name: 'Max', age: '28' },
+        { name: event.target.value, age: '29' },
+        { name: 'Stephanie', age: '26' }
+      ],
+    });
+  }
+
   return (
     <div className="App">
       <h1>Hi, I'm React App</h1>
       <p>This is realy working!</p>
-      <button onClick={swithNameHandler}>Switch name</button>
-      <Person name={personsState.person[0].name} age={personsState.person[0].age} />
-      <Person name={personsState.person[1].name} age={personsState.person[1].age} >My hobies recing</Person>
-      <Person name={personsState.person[2].name} age={personsState.person[2].age} />
+      <button onClick={()=> swithNameHandler('Maximilian!!!')}>Switch name</button>
+      <Person
+        name={personsState.person[0].name} 
+        age={personsState.person[0].age} />
+      <Person
+        name={personsState.person[1].name} 
+        age={personsState.person[1].age}
+        click={swithNameHandler.bind(this, 'Max')} 
+        changed={nameChangehandler}
+        >My hobies recing</Person>
+      <Person
+        name={personsState.person[2].name} 
+        age={personsState.person[2].age} />
     </div>
   );
   // return React.createElement('div',  {className: 'App'}, React.createElement('h1', null, 'Hi, I\'m React App!!!' ));
 }
+
 
 export default App;

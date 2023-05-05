@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import person from './Person/Person';
 
 
 class App extends Component {
   state = {
-    person: [
+    persons: [
       { name: 'Max', age: '28' },
       { name: 'Manu', age: '29' },
       { name: 'Stephanie', age: '26' }
@@ -14,18 +13,6 @@ class App extends Component {
     otherState: 'some other value',
     showPersons: false
   };
-
-  swithNameHandler = (newName) => {
-    // console.log('Was clicked ');
-    //DON'T DO THIS:  state.person[0].name = 'Maximilian';
-    this.setState({
-      person: [
-        { name: newName, age: '28' },
-        { name: 'Manu', age: '29' },
-        { name: 'Stephanie', age: '27' },
-      ]
-    })
-  }
 
   nameChangehandler = (event) => {
     this.setState({
@@ -35,6 +22,12 @@ class App extends Component {
         { name: 'Stephanie', age: '26' }
       ]
     })
+  }
+
+  deletePersonHandler = (personIndex) => {
+    const persons = this.state.persons;
+    persons.splice(personIndex, 1);
+    this.setState({persons: persons})
   }
 
   togglePersonsHandler = () => {
@@ -54,10 +47,11 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.person.map(person => {
+          {this.state.persons.map((person, index) => {
             return <Person
-            name={person.name}
-            age={person.age}/>
+              click={() => this.deletePersonHandler(index)}
+              name={person.name}
+              age={person.age} />
           })}
         </div>
       );

@@ -14,21 +14,28 @@ class App extends Component {
     showPersons: false
   };
 
-  nameChangehandler = (event) => {
-    this.setState({
-      person: [
-        {  name: 'Max', age: '28' },
-        {  name: event.target.value, age: '29' },
-        { name: 'Stephanie', age: '26' }
-      ]
-    })
+  nameChangeHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id; //true, если условие выполнено то возвращает index
+    });
+    const person = {
+      ...this.state.persons[personIndex]
+    };
+    // const person =Object.assign({}, this.state.persons[personIndex]);
+
+    person.name = event.target.value;
+
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
+    this.setState({persons: persons})
   }
 
   deletePersonHandler = (personIndex) => {
     // const persons = this.state.persons.slice();
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
-    this.setState({persons: persons})
+    this.setState({ persons: persons })
   }
 
   togglePersonsHandler = () => {
@@ -53,7 +60,10 @@ class App extends Component {
               click={() => this.deletePersonHandler(index)}
               name={person.name}
               age={person.age}
-              key={person.id} />
+              key={person.id}
+              changed={(event) => this.nameChangeHandler(event, person.id)} 
+              //changed: функция-обработчик события onChange, которая вызывается при изменении значения поля ввода, передавая в нее объект события и уникальный идентификатор человека.
+            />
           })}
         </div>
       );

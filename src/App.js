@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 import Person from './Person/Person';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 
 class App extends Component {
@@ -28,7 +29,7 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
-    this.setState({persons: persons})
+    this.setState({ persons: persons })
   }
 
   deletePersonHandler = (personIndex) => {
@@ -50,18 +51,18 @@ class App extends Component {
       persons = (
         <div>
           {this.state.persons.map((person, index) => {
-            return <Person
-              click={() => this.deletePersonHandler(index)}
-              name={person.name}
-              age={person.age}
-              key={person.id}
-              changed={(event) => this.nameChangeHandler(event, person.id)}
-            //changed: функция-обработчик события onChange, которая вызывается при изменении значения поля ввода, передавая в нее объект события и уникальный идентификатор человека.
-            />
+            return <ErrorBoundary key={person.id}
+            >
+              <Person
+                click={() => this.deletePersonHandler(index)}
+                name={person.name}
+                age={person.age}
+                changed={(event) => this.nameChangeHandler(event, person.id)} />
+            </ErrorBoundary>
           })}
         </div>
       );
-      
+
       btnClass = classes.Red;
     }
 

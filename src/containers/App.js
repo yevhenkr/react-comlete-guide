@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Persons from '../Сomponents/Persons/Persons'; 
+import Persons from '../Сomponents/Persons/Persons';
 import Cockpit from '../Сomponents/Cockpit/Cockpit'
 
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log('[app.js] constructor');
+  }
   state = {
     persons: [
       { id: 'asfa1', name: 'Max', age: '28' },
@@ -14,6 +19,18 @@ class App extends Component {
     otherState: 'some other value',
     showPersons: false
   };
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[app.js] getDerivedStateFromProps', props);
+    return state;
+  }
+
+  componentWillMount() {
+    console.log('[app.js] componentWillMount');
+  }
+  componentDidMount() {
+    console.log('[app.js] componentDidMount');
+  }
 
   nameChangeHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
@@ -29,7 +46,7 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
-    this.setState({persons: persons})
+    this.setState({ persons: persons })
   }
 
   deletePersonHandler = (personIndex) => {
@@ -44,21 +61,23 @@ class App extends Component {
     this.setState({ showPersons: !doesShow });
   }
   render() {
+    console.log('[app.js] render ');
     let persons = null;
 
     if (this.state.showPersons) {
-      persons = <Persons 
-        persons={this.state.persons} 
+      persons = <Persons
+        persons={this.state.persons}
         clicked={this.deletePersonHandler}
-        changed={this.nameChangeHandler}/>
+        changed={this.nameChangeHandler} />
     }
 
     return (
       <div className={classes.App}>
-        <Cockpit 
-        showperson={this.state.showPersons}
-        persons={this.state.persons}
-        clicked={this.togglePersonsHandler}
+        <Cockpit
+          title={this.props.appTitle}
+          showperson={this.state.showPersons}
+          persons={this.state.persons}
+          clicked={this.togglePersonsHandler}
         />
         {persons}
       </div>

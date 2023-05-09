@@ -1,25 +1,28 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import classes from "./Cockpit.css"
 
 const cockpit = (props) => {
-useEffect(()=>{
-    console.log('[Cockpit.js] useEffect');
-});
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+        setTimeout(() => {
+            alert('Saved data to cloud');
+        }, 1000);
+    }, []);//Благодаря , [props.persons] alert сработает только если  [props.persons] прийдет 
 
     const assignedClasses = [];
     let btnClass = '';
     if (props.showperson) {
         btnClass = classes.Red;
-    }else{
+    } else {
         btnClass = classes.Green;
     }
 
     if (props.persons.length <= 2) {
-      assignedClasses.push(classes.red);
+        assignedClasses.push(classes.red);
     }
     if (props.persons.length <= 1) {
-      assignedClasses.push(classes.bold);
-    }  
+        assignedClasses.push(classes.bold);
+    }
     return (
         <div className={classes.Cockpit}>
             <h1>{props.title}</h1>

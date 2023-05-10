@@ -21,7 +21,8 @@ class App extends Component {
     ],
     otherState: 'some other value',
     showPersons: false,
-    showCockpit: true
+    showCockpit: true,
+    changeCounter: 0
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -50,7 +51,12 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
-    this.setState({ persons: persons })
+    this.setState((prevProps, props) => {
+      return {
+        persons: persons,
+        changeCounter: this.state.changeCounter + 1
+      };
+    });
   }
 
   deletePersonHandler = (personIndex) => {
@@ -84,13 +90,13 @@ class App extends Component {
           Remove Cockpit
         </button>
         {this.state.showCockpit ? (
-        <Cockpit
-          title={this.props.appTitle}
-          showperson={this.state.showPersons}
-          personsLenght={this.state.persons.length}
-          clicked={this.togglePersonsHandler}
-        />
-        ): null }
+          <Cockpit
+            title={this.props.appTitle}
+            showperson={this.state.showPersons}
+            personsLenght={this.state.persons.length}
+            clicked={this.togglePersonsHandler}
+          />
+        ) : null}
         {persons}
       </Aux>
     );

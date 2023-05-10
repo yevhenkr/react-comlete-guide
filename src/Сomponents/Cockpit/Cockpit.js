@@ -29,10 +29,10 @@ const cockpit = props => {
     btnClass = classes.Red;
   }
 
-  if (props.personsLength <= 2) {
+  if (props.personsLenght <= 2) {
     assignedClasses.push(classes.red); // classes = ['red']
   }
-  if (props.personsLength <= 1) {
+  if (props.personsLenght <= 1) {
     assignedClasses.push(classes.bold); // classes = ['red', 'bold']
   }
 

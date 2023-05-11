@@ -61,17 +61,17 @@ address@^1.0.1, address@1.0.3:
   resolved "https://registry.npmjs.org/address/-/address-1.0.3.tgz"
   integrity sha512-z55ocwKBRLryBs394Sm3ushTtBeg6VAeuku7utSoSnsJKvKcnXFIyC6vh27n3rXyxSgkJBBCAvyOn7gSUcTYjg==
 
-ajv-keywords@^2.0.0:
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-2.1.1.tgz"
-  integrity sha512-ZFztHzVRdGLAzJmpUT9LNFLe1YiVOEylcaNpEutM26PVTCtOD919IMfD01CgbRouB42Dd9atjx1HseC15DgOZA==
-
 ajv-keywords@^3.0.0:
   version "3.5.2"
   resolved "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-3.5.2.tgz"
   integrity sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==
 
-ajv@^5.0.0, ajv@^5.1.5, ajv@^5.2.0:
+ajv-keywords@^3.1.0:
+  version "3.5.2"
+  resolved "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-3.5.2.tgz"
+  integrity sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==
+
+ajv@^5.0.0, ajv@^5.2.0:
   version "5.5.2"
   resolved "https://registry.npmjs.org/ajv/-/ajv-5.5.2.tgz"
   integrity sha512-Ajr4IcMXq/2QmMkEmSvxqfLN5zGmJ92gHXAeOXq1OekoH2rfDNsgdDoL2f7QaRCy7G/E6TpxBVdRuNraMztGHw==
@@ -81,7 +81,7 @@ ajv@^5.0.0, ajv@^5.1.5, ajv@^5.2.0:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.3.0"
 
-ajv@^6.0.1, ajv@^6.9.1:
+ajv@^6.0.1, ajv@^6.1.0, ajv@^6.9.1:
   version "6.12.6"
   resolved "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz"
   integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
@@ -6736,52 +6736,6 @@ react-is@^16.13.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-scripts@1.1.4:
-  version "1.1.4"
-  resolved "https://registry.npmjs.org/react-scripts/-/react-scripts-1.1.4.tgz"
-  integrity sha512-UVZIujEIT9BGbx+NGvyfS92eOrNIIpqqFi1FP7a0O9l94A/XV7bhPk70SfDKaXZouCX81tFdXo0948DjhCEgGw==
-  dependencies:
-    autoprefixer "7.1.6"
-    babel-core "6.26.0"
-    babel-eslint "7.2.3"
-    babel-jest "20.0.3"
-    babel-loader "7.1.2"
-    babel-preset-react-app "^3.1.1"
-    babel-runtime "6.26.0"
-    case-sensitive-paths-webpack-plugin "2.1.1"
-    chalk "1.1.3"
-    css-loader "0.28.7"
-    dotenv "4.0.0"
-    dotenv-expand "4.2.0"
-    eslint "4.10.0"
-    eslint-config-react-app "^2.1.0"
-    eslint-loader "1.9.0"
-    eslint-plugin-flowtype "2.39.1"
-    eslint-plugin-import "2.8.0"
-    eslint-plugin-jsx-a11y "5.1.1"
-    eslint-plugin-react "7.4.0"
-    extract-text-webpack-plugin "3.0.2"
-    file-loader "1.1.5"
-    fs-extra "3.0.1"
-    html-webpack-plugin "2.29.0"
-    jest "20.0.4"
-    object-assign "4.1.1"
-    postcss-flexbugs-fixes "3.2.0"
-    postcss-loader "2.0.8"
-    promise "8.0.1"
-    raf "3.4.0"
-    react-dev-utils "^5.0.1"
-    resolve "1.6.0"
-    style-loader "0.19.0"
-    sw-precache-webpack-plugin "0.11.4"
-    url-loader "0.6.2"
-    webpack "3.8.1"
-    webpack-dev-server "2.9.4"
-    webpack-manifest-plugin "1.3.2"
-    whatwg-fetch "2.0.3"
-  optionalDependencies:
-    fsevents "^1.1.3"
-
 react@^16.11.0, react@^16.14.0:
   version "16.14.0"
   resolved "https://registry.npmjs.org/react/-/react-16.14.0.tgz"
@@ -8438,15 +8392,15 @@ webpack-sources@^1.0.1:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-"webpack@^1 || ^2 || ^2.1.0-beta || ^2.2.0-beta || ^3", "webpack@^1.0.0 || ^2.0.0 || ^3.0.0", "webpack@^1.9 || ^2 || ^2.1.0-beta || ^2.2.0-rc || ^3.0.0", "webpack@^2.0.0 || ^3.0.0", "webpack@^2.2.0 || ^3.0.0", webpack@^3.1.0, "webpack@1 || ^2 || ^2.1.0-beta || ^2.2.0-rc || ^3", "webpack@1 || 2 || 3", "webpack@2 || 3", webpack@3.8.1:
-  version "3.8.1"
-  resolved "https://registry.npmjs.org/webpack/-/webpack-3.8.1.tgz"
-  integrity sha512-5ZXLWWsMqHKFr5y0N3Eo5IIisxeEeRAajNq4mELb/WELOR7srdbQk2N5XiyNy2A/AgvlR3AmeBCZJW8lHrolbw==
+"webpack@^1 || ^2 || ^2.1.0-beta || ^2.2.0-beta || ^3", "webpack@^1.0.0 || ^2.0.0 || ^3.0.0", "webpack@^1.9 || ^2 || ^2.1.0-beta || ^2.2.0-rc || ^3.0.0", "webpack@^2.0.0 || ^3.0.0", "webpack@^2.2.0 || ^3.0.0", webpack@^3.1.0, webpack@^3.12.0, "webpack@1 || ^2 || ^2.1.0-beta || ^2.2.0-rc || ^3", "webpack@1 || 2 || 3", "webpack@2 || 3":
+  version "3.12.0"
+  resolved "https://registry.npmjs.org/webpack/-/webpack-3.12.0.tgz"
+  integrity sha512-Sw7MdIIOv/nkzPzee4o0EdvCuPmxT98+vVpIvwtcwcF1Q4SDSNp92vwcKc4REe7NItH9f1S4ra9FuQ7yuYZ8bQ==
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"
-    ajv "^5.1.5"
-    ajv-keywords "^2.0.0"
+    ajv "^6.1.0"
+    ajv-keywords "^3.1.0"
     async "^2.1.2"
     enhanced-resolve "^3.4.0"
     escope "^3.6.0"

@@ -71,7 +71,7 @@ class BurgerBuilder extends Component {
   }
 
   purechaseHandler = () => {
- this.setState({purchasing: true});
+    this.setState({ purchasing: true });
   }
 
   purchaseCanselHandler = () => {

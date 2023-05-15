@@ -9,7 +9,6 @@ const orderSummary = (props) => {
                         {igKey}</span>:{props.ingredients[igKey]}
                 </li>);
         });
-    <li>Salad: 1  </li>
     return (
         <Aux>
             <h3>Your Order</h3>
